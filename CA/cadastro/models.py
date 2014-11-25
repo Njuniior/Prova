@@ -61,3 +61,6 @@ class Presenca(models.Model):
 		p = Presenca.objects.filter(Nome=self.Nome,HoraSaida__isnull=True)
 		if p and self.id == None:
 			raise ValidationError ("Usuario esta Presente em outro Local")
+
+		if self.Local.NivelAcesso > self.Nome.NivelAcesso:
+			raise ValidationError ("Usuario sem Permissão de acesso")
