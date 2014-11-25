@@ -1,16 +1,20 @@
-#coding: utf-8
+#coding:utf-8
 from django.contrib import admin
-from models import Cadastro, CadastroLocal
+from models import CadastroPessoa, CadastroLocal, Presenca
 
 # Register your models here.
 
-class CadastroAdmin (admin.ModelAdmin):
-	list_display = ['Nome','CPF','Cidade','Sexo']
+class CadastroPessoaAdmin (admin.ModelAdmin):
+	list_display = ['Nome','Cidade','Sexo']
 
 class CadastrolocalAdmin (admin.ModelAdmin):
 	list_display = ['NomeLocal','TipoLocal']
 
+class PresencaAdmin (admin.ModelAdmin):
+	list_display = ['Nome','Local', 'HoraEntrada','HoraSaida']
 
-admin.site.register(Cadastro,CadastroAdmin)
+
+admin.site.register(CadastroPessoa,CadastroPessoaAdmin)
 admin.site.register(CadastroLocal,CadastrolocalAdmin)
+admin.site.register(Presenca,PresencaAdmin)
 
